@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        canvas {
+            background-color: #000;
+            border: 1px solid #000;
+        }
+
+        #score {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            font-size: 24px;
+            color: #333;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+    <div id="score">Score: 0</div>
+    <canvas id="gameCanvas" width="400" height="400"></canvas>
+
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        const grid = 20;  // Size of the grid (20x20)
+        let snake = [{x: 100, y: 100}];  // Initial snake position
+        let food = {x: 200, y: 200};  // Initial food position
+        let dx = grid;  // Initial horizontal speed
+        let dy = 0;  // Initial vertical speed
+        let score = 0;
+        let gameOver = false;
+
+        // Draw the snake
